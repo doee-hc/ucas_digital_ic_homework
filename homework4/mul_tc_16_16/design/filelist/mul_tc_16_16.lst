@@ -1,0 +1,7 @@
+${RTL_PATH}/rtl/booth2.v
+${RTL_PATH}/rtl/cla16.v
+${RTL_PATH}/rtl/cla32.v
+${RTL_PATH}/rtl/cla4.v
+${RTL_PATH}/rtl/full_adder.v
+${RTL_PATH}/rtl/mul_tc_16_16.v
+${RTL_PATH}/rtl/wallace_tree.v

@@ -1,0 +1,4 @@
+fsdbAutoSwitchDumpfile 2000 "$env(WAVE_NAME)" 10
+fsdbDumpvars +all
+
+fsdbDumpflush

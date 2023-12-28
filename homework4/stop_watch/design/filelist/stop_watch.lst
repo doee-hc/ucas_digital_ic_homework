@@ -1,0 +1,2 @@
+${RTL_PATH}/rtl/counter_wrapper.v
+${RTL_PATH}/rtl/stop_watch.v
