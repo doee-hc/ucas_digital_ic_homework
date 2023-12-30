@@ -52,6 +52,7 @@ module cordic #(
             //if(i==4) begin
             //    assign x[i+1] = sign[i-1] ? (x[i] + (y[i]>>>(i+1))) : (x[i] - (y[i]>>>(i+1)));
             //    assign y[i+1] = sign[i-1] ? (y[i] + (x[i]>>>(i+1))) : (y[i] - (x[i]>>>(i+1)));
+            //    assign sign[i] = y[i][33];
             //end else 
             begin
                 assign x[i+1] = sign[i] ? (x[i] + (y[i]>>>(i+1))) : (x[i] - (y[i]>>>(i+1)));
