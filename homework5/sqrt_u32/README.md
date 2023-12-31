@@ -22,7 +22,7 @@
 
 为了控制精度，缩放时需要使用使用定点格式的小数，整数部分3位，小数部分29位，这样表示的数据范围为[0,8]。
 
-![定点化](doc\定点化.png)
+![定点化](/doc/定点化.png)
 
 假设整个开方模块的输入的定点数据为x，输出为y，当x的定点格式不在要求的定义域时，需要进行移位缩放。
 $$
@@ -88,7 +88,7 @@ always @(*) begin
 
 
 
-![cordic_sqrt_structure](doc\cordic_sqrt_structure.jpg)
+![cordic_sqrt_structure](/doc/cordic_sqrt_structure.jpg)
 
 
 
