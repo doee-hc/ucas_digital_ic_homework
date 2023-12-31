@@ -25,30 +25,22 @@
 ![定点化](./doc/定点化.png)
 
 假设整个开方模块的输入的定点数据为x，输出为y，当x的定点格式不在要求的定义域时，需要进行移位缩放。
-$$
-\begin{align}
-input &=x\\
-output &=y\\
-x\_shiftted &= x * 2 ^n \in[0,8]\\
-\end{align}
-$$
+
+$$input =x$$
+
+$$output =y$$
+
+$$x\_shiftted = x * 2 ^n \in[0,8]$$
 
 
 输入到cordic中运算，其中Kh是Cordic迭代过程的累积系数，详见参考文章。
-$$
-cordic\_output &= 2K_h\sqrt{x * 2 ^n} =2K_h{2^{n/2}}*x,\:\:其中K_h\approx1.2075\\
-$$
+
+$$cordic\_output = 2K_h\sqrt{x * 2 ^n} =2K_h{2^{n/2}}*x,\ \ 其中K_h\approx1.2075$$
+
 
 
 最后对cordic的输出的结果乘对应的系数进行还原：
-$$
-\begin{align}
-
-
-y &= coridc\_output * K,\:\:\:\:其中K = 1/{(2^{n/2}*2K_h)}\\
-
-\end{align}
-$$
+$$y = coridc\_output * K,\ 其中K = 1/{(2^{n/2}*2K_h)}$$
 
 
 
