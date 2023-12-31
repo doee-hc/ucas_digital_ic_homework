@@ -33,7 +33,6 @@ TB_SRC 	:= -f $(TB_SRC_DIR)/filelist/tb.lst
 TB_CMP_OPTIONS += -full64 +lint=TFIPC-L \
 				  -lca +v2k -v2005 -sverilog \
 				  -fsdb -timescale=1ns/10ps \
-				  -R \
 				  -debug_all -debug_acc+dmptf \
 				  -debug_region+cell+encrypt \
 				  +notimingcheck +nospecify
@@ -42,7 +41,7 @@ TB_CMP_OPTIONS += -j16
 
 # parameter transfer to rtl when siaddate
 #TB_SIM_OPTIONS :=+=firmware=$(IMGDIR)/$(UNI_TC_NAME).hex
-TB_SIM_OPTIONS := -ucli -i $(SIMDIR)/cmd.ucli
+TB_SIM_OPTIONS := -ucli -i $(SIMDIR)/cmd.ucli 
 
 # define transfer to rtl when compile
 #TB_CMP_DEF_OPTIONS := define+RTL

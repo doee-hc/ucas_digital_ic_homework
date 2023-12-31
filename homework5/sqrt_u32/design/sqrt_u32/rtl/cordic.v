@@ -15,10 +15,10 @@
 // Abstract: 
 module cordic #(
     parameter MODE = "vector",
-    parameter ITERATION = 32 
+    parameter ITERATION = 8 
 )(
-    input [33:0]    ix,
-    input [33:0]    iy,
+    input [32:0]    ix,
+    input [32:0]    iy,
     input [31:0]    iz,
 
     output [31:0]   ox,
@@ -42,8 +42,8 @@ module cordic #(
     wire signed [33:0] y       [ITERATION:0];
     wire               sign    [ITERATION-1:0];
     
-    assign x[0] = ix;
-    assign y[0] = iy;
+    assign x[0] = {1'b0,ix};
+    assign y[0] = {1'b0,iy};
 
     genvar i;
     generate
@@ -54,11 +54,9 @@ module cordic #(
             //    assign y[i+1] = sign[i-1] ? (y[i] + (x[i]>>>(i+1))) : (y[i] - (x[i]>>>(i+1)));
             //    assign sign[i] = y[i][33];
             //end else 
-            begin
                 assign x[i+1] = sign[i] ? (x[i] + (y[i]>>>(i+1))) : (x[i] - (y[i]>>>(i+1)));
                 assign y[i+1] = sign[i] ? (y[i] + (x[i]>>>(i+1))) : (y[i] - (x[i]>>>(i+1)));
                 assign sign[i] = y[i][33]; 
-            end
         end
     endgenerate
     

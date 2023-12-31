@@ -9,7 +9,7 @@ set link_library 	"sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c.db \
 					dw_foundation.sldb"
 set symbol_library 	"sc9mc_logic0040ll_base_rvt_c40.sdb"
 
-set top            add_tc_16_16 
+set top            sqrt_u32
 set RTL_PATH        "../design/${top}"
 
 
@@ -27,7 +27,7 @@ if { [file exists log ] == 0 } {
 
 
 analyze -format sverilog -vcs "-f ${RTL_PATH}/../filelist/${top}.lst"
-elaborate           $top -parameters {TYPE="grp_parallel"}
+elaborate           $top 
 current_design      $top
 set_svf             ${top}.svf
 
@@ -36,12 +36,11 @@ uniquify
 check_design
 
 # 1Ghz
-set_max_delay -from [get_ports a] -to [get_ports sum] 1 
-set_max_delay -from [get_ports b] -to [get_ports sum] 1 
-
-# 500Mhz
 #set_max_delay -from [get_ports a] -to [get_ports sum] 1 
 #set_max_delay -from [get_ports b] -to [get_ports sum] 1 
+
+# 500Mhz
+set_max_delay -from [get_ports x] -to [get_ports y] 1 
 
 
 

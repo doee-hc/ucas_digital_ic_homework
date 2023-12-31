@@ -1,1 +1,3 @@
 ${RTL_PATH}/rtl/cordic.v
+${RTL_PATH}/rtl/sqrt_u32.v
+
