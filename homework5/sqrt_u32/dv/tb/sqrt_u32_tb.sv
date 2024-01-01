@@ -65,6 +65,7 @@ module sqrt_u32_tb;
     initial begin
         for(j=0;j<20;j++) begin
             wait(vld_out);
+            #1;
             $display("res=%d,ref=%d",sqrt_res,a_sqrt_ref[j]);
             #6;
         end
