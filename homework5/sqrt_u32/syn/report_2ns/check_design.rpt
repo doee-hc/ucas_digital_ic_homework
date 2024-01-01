@@ -1,0 +1,176 @@
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Mon Jan  1 23:34:58 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     97
+    Unconnected ports (LINT-28)                                    97
+
+Cells                                                              31
+    Nets connected to multiple pins on same cell (LINT-33)         31
+--------------------------------------------------------------------------------
+
+Warning: In design 'fifo_DATA_WIDTH32_DEPTH16', port 'full' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'iz[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oy[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'cordic_ITERATION8', port 'oz[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[29]' is connected to pins 'ix[29]', 'iy[29]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[28]' is connected to pins 'ix[28]', 'iy[28]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[27]' is connected to pins 'ix[27]', 'iy[27]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[26]' is connected to pins 'ix[26]', 'iy[26]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[25]' is connected to pins 'ix[25]', 'iy[25]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[24]' is connected to pins 'ix[24]', 'iy[24]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[23]' is connected to pins 'ix[23]', 'iy[23]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[22]' is connected to pins 'ix[22]', 'iy[22]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[21]' is connected to pins 'ix[21]', 'iy[21]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[20]' is connected to pins 'ix[20]', 'iy[20]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[19]' is connected to pins 'ix[19]', 'iy[19]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[18]' is connected to pins 'ix[18]', 'iy[18]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[17]' is connected to pins 'ix[17]', 'iy[17]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[16]' is connected to pins 'ix[16]', 'iy[16]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[15]' is connected to pins 'ix[15]', 'iy[15]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[14]' is connected to pins 'ix[14]', 'iy[14]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[13]' is connected to pins 'ix[13]', 'iy[13]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[12]' is connected to pins 'ix[12]', 'iy[12]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[11]' is connected to pins 'ix[11]', 'iy[11]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[10]' is connected to pins 'ix[10]', 'iy[10]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[9]' is connected to pins 'ix[9]', 'iy[9]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[8]' is connected to pins 'ix[8]', 'iy[8]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[7]' is connected to pins 'ix[7]', 'iy[7]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[6]' is connected to pins 'ix[6]', 'iy[6]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[5]' is connected to pins 'ix[5]', 'iy[5]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[4]' is connected to pins 'ix[4]', 'iy[4]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[3]' is connected to pins 'ix[3]', 'iy[3]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[2]' is connected to pins 'ix[2]', 'iy[2]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[1]' is connected to pins 'ix[1]', 'iy[1]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net 'ix[0]' is connected to pins 'ix[0]', 'iy[0]''.
+Warning: In design 'sqrt_u32', the same net is connected to more than one pin on submodule 'u_cordic'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'iz[31]', 'iz[30]'', 'iz[29]', 'iz[28]', 'iz[27]', 'iz[26]', 'iz[25]', 'iz[24]', 'iz[23]', 'iz[22]', 'iz[21]', 'iz[20]', 'iz[19]', 'iz[18]', 'iz[17]', 'iz[16]', 'iz[15]', 'iz[14]', 'iz[13]', 'iz[12]', 'iz[11]', 'iz[10]', 'iz[9]', 'iz[8]', 'iz[7]', 'iz[6]', 'iz[5]', 'iz[4]', 'iz[3]', 'iz[2]', 'iz[1]', 'iz[0]'.
+1

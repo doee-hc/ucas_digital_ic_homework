@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : area
+Design : sqrt_u32
+Version: O-2018.06-SP1
+Date   : Mon Jan  1 23:34:58 2024
+****************************************
+
+Library(s) Used:
+
+    sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c (File: /opt/smic40/sc9mc_base_rvt_c40/r1p1/db/sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c.db)
+
+Number of ports:                          321
+Number of nets:                          4270
+Number of cells:                         3871
+Number of combinational cells:           3222
+Number of sequential cells:               647
+Number of macros/black boxes:               0
+Number of buf/inv:                        322
+Number of references:                     100
+
+Combinational area:               4304.890815
+Buf/Inv area:                      181.465200
+Noncombinational area:            3137.097607
+Macro/Black Box area:                0.000000
+Net Interconnect area:               0.000000
+
+Total cell area:                  7441.988422
+Total area:                       7441.988422
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  -------------------------
+sqrt_u32                          7441.9884    100.0  1484.0406    81.3960  0.0000  sqrt_u32
+u_cordic                          1718.8920     23.1  1410.0660   308.8260  0.0000  cordic_ITERATION8
+u_fifo_32_16                      4157.6598     55.9  1410.7842  2746.8756  0.0000  fifo_DATA_WIDTH32_DEPTH16
+--------------------------------  ---------  -------  ---------  ---------  ------  -------------------------
+Total                                                 4304.8908  3137.0976  0.0000
+
+1

@@ -1,0 +1,45 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : sqrt_u32
+Version: O-2018.06-SP1
+Date   : Mon Jan  1 23:37:58 2024
+****************************************
+
+
+Library(s) Used:
+
+    sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c (File: /opt/smic40/sc9mc_base_rvt_c40/r1p1/db/sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c.db)
+
+
+Operating Conditions: tt_typical_max_1p10v_25c   Library: sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+sqrt_u32               Small             sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1uW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+sqrt_u32                                  1.314    4.375    1.660    5.691 100.0
+  u_cordic (cordic_ITERATION8)            0.588    0.741    0.388    1.329  23.4
+  u_fifo_32_16 (fifo_DATA_WIDTH32_DEPTH16)
+                                          0.153    3.010    0.289    3.164  55.6
+1

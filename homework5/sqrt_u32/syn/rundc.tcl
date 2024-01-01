@@ -40,11 +40,20 @@ check_design
 #set_max_delay -from [get_ports b] -to [get_ports sum] 1 
 
 # 500Mhz
-set_max_delay -from [get_ports x] -to [get_ports y] 1 
+#set_max_delay -from [get_ports ] -to [get_ports y] 1 
+
+
+create_clock -period 1 [get_ports clk]
+#set_multicycle_path 2 -setup -from [get_pins u_fifo_32_16/rd_data_reg*/CK] -to [get_pins u_cordic/x_reg*/D]
+#set_multicycle_path 1 -hold  -from [get_pins u_fifo_32_16/rd_data_reg*/CK] -to [get_pins u_cordic/x_reg*/D]
+set_multicycle_path 2 -setup -through [get_pins u_fifo_32_16/rd_data_reg*/Q]
+set_multicycle_path 1 -hold  -through [get_pins u_fifo_32_16/rd_data_reg*/Q]
 
 
 
-compile_ultra -no_autoungroup -area_high_effort_script
+compile_ultra -no_autoungroup
+optimize_netlist -area
+
 check_timing    > ./report/check_timing.rpt
 check_design    > ./report/check_design.rpt
 report_timing   > ./report/timing.rpt

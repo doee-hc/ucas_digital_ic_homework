@@ -1,0 +1,74 @@
+Information: Updating design information... (UID-85)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+Warning: The following input ports have no clock_relative delay specified, the command set_input_delay without -clock option will be ignored. (TIM-216)
+--------------------
+rst_n
+vld_in
+x[31]
+x[30]
+x[29]
+x[28]
+x[27]
+x[26]
+x[25]
+x[24]
+x[23]
+x[22]
+x[21]
+x[20]
+x[19]
+x[18]
+x[17]
+x[16]
+x[15]
+x[14]
+x[13]
+x[12]
+x[11]
+x[10]
+x[9]
+x[8]
+x[7]
+x[6]
+x[5]
+x[4]
+x[3]
+x[2]
+x[1]
+x[0]
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+vld_out
+y[0]
+y[1]
+y[2]
+y[3]
+y[4]
+y[5]
+y[6]
+y[7]
+y[8]
+y[9]
+y[10]
+y[11]
+y[12]
+y[13]
+y[14]
+y[15]
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1

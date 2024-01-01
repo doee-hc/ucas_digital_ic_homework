@@ -1,0 +1,82 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : sqrt_u32
+Version: O-2018.06-SP1
+Date   : Mon Jan  1 23:34:58 2024
+****************************************
+
+Operating Conditions: tt_typical_max_1p10v_25c   Library: sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c
+Wire Load Model Mode: top
+
+  Startpoint: u_cordic/itera_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: u_cordic/x_reg[32]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  sqrt_u32           Small                 sc9mc_logic0040ll_base_rvt_c40_tt_typical_max_1p10v_25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_cordic/itera_reg[1]/CK (DFFRPQ_X4M_A9TR40)            0.00       0.00 r
+  u_cordic/itera_reg[1]/Q (DFFRPQ_X4M_A9TR40)             0.14       0.14 r
+  u_cordic/U766/Y (NOR2B_X2M_A9TR40)                      0.07       0.21 r
+  u_cordic/U632/Y (INV_X3M_A9TR40)                        0.02       0.24 f
+  u_cordic/U648/Y (INV_X1P2B_A9TR40)                      0.05       0.28 r
+  u_cordic/U38/Y (BUF_X7P5M_A9TR40)                       0.07       0.35 r
+  u_cordic/U1056/Y (AOI22_X0P5M_A9TR40)                   0.07       0.42 f
+  u_cordic/U1058/Y (NAND2_X0P7B_A9TR40)                   0.08       0.50 r
+  u_cordic/U1089/Y (AOI22_X0P5M_A9TR40)                   0.08       0.58 f
+  u_cordic/U619/Y (AO21A1AI2_X1M_A9TR40)                  0.11       0.69 r
+  u_cordic/U630/Y (XOR2_X1P4M_A9TR40)                     0.06       0.75 f
+  u_cordic/U592/Y (NOR2_X2A_A9TR40)                       0.07       0.82 r
+  u_cordic/U1119/Y (OAI21_X1M_A9TR40)                     0.05       0.87 f
+  u_cordic/U679/Y (AOI21_X1M_A9TR40)                      0.06       0.93 r
+  u_cordic/U402/Y (OAI21_X2M_A9TR40)                      0.05       0.98 f
+  u_cordic/U620/Y (AOI21_X3M_A9TR40)                      0.06       1.04 r
+  u_cordic/U649/Y (OAI21_X4M_A9TR40)                      0.04       1.08 f
+  u_cordic/U651/Y (AOI21_X3M_A9TR40)                      0.06       1.14 r
+  u_cordic/U650/Y (OAI21_X4M_A9TR40)                      0.04       1.19 f
+  u_cordic/U658/Y (AOI21_X3M_A9TR40)                      0.07       1.25 r
+  u_cordic/U657/Y (OAI21_X6M_A9TR40)                      0.05       1.30 f
+  u_cordic/U701/Y (AOI21_X6M_A9TR40)                      0.05       1.35 r
+  u_cordic/U1202/Y (OAI21_X6M_A9TR40)                     0.04       1.39 f
+  u_cordic/U687/Y (AOI21_X6M_A9TR40)                      0.05       1.44 r
+  u_cordic/U1204/Y (OAI21_X6M_A9TR40)                     0.04       1.48 f
+  u_cordic/U688/Y (AOI21_X6M_A9TR40)                      0.05       1.53 r
+  u_cordic/U1206/Y (OAI21_X6M_A9TR40)                     0.04       1.56 f
+  u_cordic/U492/Y (AOI21_X6M_A9TR40)                      0.05       1.61 r
+  u_cordic/U22/Y (OAI21_X6M_A9TR40)                       0.04       1.65 f
+  u_cordic/U703/Y (AOI21_X6M_A9TR40)                      0.05       1.70 r
+  u_cordic/U1207/Y (OAI21_X6M_A9TR40)                     0.04       1.74 f
+  u_cordic/U704/Y (AOI21_X6M_A9TR40)                      0.05       1.79 r
+  u_cordic/U1208/Y (OAI2XB1_X6M_A9TR40)                   0.04       1.83 f
+  u_cordic/U51/Y (AOI21B_X4M_A9TR40)                      0.05       1.87 r
+  u_cordic/U50/Y (XOR2_X3M_A9TR40)                        0.04       1.91 r
+  u_cordic/U7/Y (NAND2_X2M_A9TR40)                        0.03       1.94 f
+  u_cordic/U6/Y (AO21B_X2M_A9TR40)                        0.03       1.97 r
+  u_cordic/x_reg[32]/D (DFFQ_X2M_A9TR40)                  0.00       1.97 r
+  data arrival time                                                  1.97
+
+  clock clk (rise edge)                                   2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  u_cordic/x_reg[32]/CK (DFFQ_X2M_A9TR40)                 0.00       2.00 r
+  library setup time                                     -0.03       1.97
+  data required time                                                 1.97
+  --------------------------------------------------------------------------
+  data required time                                                 1.97
+  data arrival time                                                 -1.97
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
