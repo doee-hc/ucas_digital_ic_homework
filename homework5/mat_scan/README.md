@@ -4,7 +4,7 @@
 
 如图所示，ZigZag扫描就是将8x8的矩阵块按照箭头运动方向重新排列（从1开始到64结束）：
 
-![zigzag_flow](.\doc\ZigZag_flow.png)
+![zigzag_flow](./doc/ZigZag_flow.png)
 
 设计一个时序逻辑电路，对输入64个整数（按照行优先方式构成8x8的矩阵块）按照ZigZag扫描方式依次输出。例如：
 
@@ -39,7 +39,7 @@
 
 要找到一个合适的点，使得这之后输入和输出可以并行，提前开始输出。
 
-![zigzag_flow](.\doc\ZigZag_flow.png)
+![zigzag_flow](./doc/ZigZag_flow.png)
 
 若输入数据到17时开始输出，则10个cycle后到zigzag扫描到25，此时输入数据已经到26，可以继续，但扫描到33时，输入数据还没到，因此不符合。
 
