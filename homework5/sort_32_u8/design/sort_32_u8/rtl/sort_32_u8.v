@@ -90,28 +90,38 @@ module sort_32_u8(
     reg  [7:0]  b_r [16:0];
     reg  [7:0]  big [16:0];
     reg  [7:0]  lit [16:0];
-    reg         en;
-    reg         o_en;
-    reg  [3:0]  state;
+    reg         oe;
+    reg  [3:0]  state_nxt;
+    reg  [3:0]  state_cur;
+
+    always @(*) begin
+        if(vld_in) begin
+            state_nxt = 0;
+        end else if(state_cur == 15) begin
+            state_nxt = state_cur;
+        end else begin
+            state_nxt = state_cur + 1;
+        end
+    end
 
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            state <= 4'd15;
-            o_en <= 1'b0;
-            en <= 1'b0;
+            state_cur <= 15;
         end
         else begin
-            o_en <= 1'b0;
-            if(vld_in) begin
-                state <= 0;
-                en <= 1'b1;
-            end
-            else if(en) begin
-                state <= state + 1'b1;
-                if (state == 13) begin
-                    en <= 1'b0;
-                    o_en <= 1'b1;
-                end  
+            state_cur <= state_nxt;
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            oe <= 1'b0;
+        end
+        else begin
+            if(state_nxt == 14) begin
+                oe <= 1'b1;
+            end else begin
+                oe <= 1'b0;
             end
         end
     end
@@ -131,7 +141,7 @@ module sort_32_u8(
                 end
             end
             always @(posedge clk) begin
-                if(vld_in | en) begin
+                if(state_nxt != 15) begin
                     a_r[i] <= a[i];
                     b_r[i] <= b[i];
                 end
@@ -140,7 +150,7 @@ module sort_32_u8(
 
     endgenerate
 
-    assign vld_out = o_en;
+    assign vld_out = oe;
 
     assign dout_0  = lit[0];  
     assign dout_1  = big[0];  
@@ -177,8 +187,8 @@ module sort_32_u8(
 
     // data flow
     always @(*) begin
-        case(state)
-            default:  begin 
+        case(state_nxt)
+            4'd0: begin 
                 a[0 ] = din_0 ;   b[0 ] = din_16;
                 a[1 ] = din_1 ;   b[1 ] = din_17;
                 a[2 ] = din_2 ;   b[2 ] = din_18;
@@ -196,26 +206,7 @@ module sort_32_u8(
                 a[14] = din_14;   b[14] = din_30;
                 a[15] = din_15;   b[15] = din_31;
             end
-
-            4'd15: begin 
-                a[0 ] = din_0 ;   b[0 ] = din_16;
-                a[1 ] = din_1 ;   b[1 ] = din_17;
-                a[2 ] = din_2 ;   b[2 ] = din_18;
-                a[3 ] = din_3 ;   b[3 ] = din_19;
-                a[4 ] = din_4 ;   b[4 ] = din_20;
-                a[5 ] = din_5 ;   b[5 ] = din_21;
-                a[6 ] = din_6 ;   b[6 ] = din_22;
-                a[7 ] = din_7 ;   b[7 ] = din_23;
-                a[8 ] = din_8 ;   b[8 ] = din_24;
-                a[9 ] = din_9 ;   b[9 ] = din_25;
-                a[10] = din_10;   b[10] = din_26;
-                a[11] = din_11;   b[11] = din_27;
-                a[12] = din_12;   b[12] = din_28;
-                a[13] = din_13;   b[13] = din_29;
-                a[14] = din_14;   b[14] = din_30;
-                a[15] = din_15;   b[15] = din_31;
-            end
-            4'd0: begin
+            4'd1: begin
                 a[0 ] = lit[ 0];   b[0 ] = big[ 1];
                 a[1 ] = big[ 0];   b[1 ] = lit[ 1];
                 a[2 ] = lit[ 2];   b[2 ] = big[ 3];
@@ -233,7 +224,7 @@ module sort_32_u8(
                 a[14] = lit[14];   b[14] = big[15];
                 a[15] = big[14];   b[15] = lit[15];
             end
-            4'd1: begin
+            4'd2: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 1];
                 a[1 ] = big[ 0];   b[1 ] = big[ 1];
                 a[2 ] = big[ 2];   b[2 ] = big[ 3];
@@ -251,7 +242,7 @@ module sort_32_u8(
                 a[14] = big[14];   b[14] = big[15];
                 a[15] = lit[14];   b[15] = lit[15];
             end
-            4'd2: begin
+            4'd3: begin
                 a[0 ] = lit[ 0];   b[0 ] = big[ 2];
                 a[1 ] = big[ 0];   b[1 ] = lit[ 2];
                 a[2 ] = lit[ 1];   b[2 ] = big[ 3];
@@ -269,7 +260,7 @@ module sort_32_u8(
                 a[14] = lit[13];   b[14] = big[15];
                 a[15] = big[13];   b[15] = lit[15];
             end
-            4'd3: begin
+            4'd4: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 2];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 3];
                 a[2 ] = big[ 0];   b[2 ] = big[ 2];
@@ -287,7 +278,7 @@ module sort_32_u8(
                 a[14] = lit[12];   b[14] = lit[14];
                 a[15] = lit[13];   b[15] = lit[15];
             end
-            4'd4: begin
+            4'd5: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 1];
                 a[1 ] = big[ 0];   b[1 ] = big[ 1];
                 a[2 ] = lit[ 2];   b[2 ] = lit[ 3];
@@ -305,7 +296,7 @@ module sort_32_u8(
                 a[14] = big[14];   b[14] = big[15];
                 a[15] = lit[14];   b[15] = lit[15];
             end
-            4'd5: begin
+            4'd6: begin
                 a[0 ] = lit[ 0];   b[0 ] = big[ 4];
                 a[1 ] = big[ 0];   b[1 ] = lit[ 4];
                 a[2 ] = lit[ 1];   b[2 ] = big[ 5];
@@ -323,7 +314,7 @@ module sort_32_u8(
                 a[14] = lit[11];   b[14] = big[15];
                 a[15] = big[11];   b[15] = lit[15];
             end
-            4'd6: begin
+            4'd7: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 4];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 5];
                 a[2 ] = lit[ 2];   b[2 ] = lit[ 6];
@@ -341,7 +332,7 @@ module sort_32_u8(
                 a[14] = lit[10];   b[14] = lit[14];
                 a[15] = lit[11];   b[15] = lit[15];
             end
-            4'd7: begin
+            4'd8: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 2];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 3];
                 a[2 ] = big[ 0];   b[2 ] = big[ 2];
@@ -359,7 +350,7 @@ module sort_32_u8(
                 a[14] = lit[12];   b[14] = lit[14];
                 a[15] = lit[13];   b[15] = lit[15];   
             end
-            4'd8: begin
+            4'd9: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 1];
                 a[1 ] = big[ 0];   b[1 ] = big[ 1];
                 a[2 ] = lit[ 2];   b[2 ] = lit[ 3];
@@ -377,7 +368,7 @@ module sort_32_u8(
                 a[14] = big[14];   b[14] = big[15];
                 a[15] = lit[14];   b[15] = lit[15];            
             end
-            4'd9: begin
+            4'd10: begin
                 a[0 ] = lit[ 0];   b[0 ] = big[ 8];
                 a[1 ] = big[ 0];   b[1 ] = lit[ 8];
                 a[2 ] = lit[ 1];   b[2 ] = big[ 9];
@@ -395,7 +386,7 @@ module sort_32_u8(
                 a[14] = lit[ 7];   b[14] = big[15];
                 a[15] = big[ 7];   b[15] = lit[15];                    
             end
-            4'd10: begin
+            4'd11: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 8];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 9];
                 a[2 ] = lit[ 2];   b[2 ] = lit[10];
@@ -413,7 +404,7 @@ module sort_32_u8(
                 a[14] = big[ 6];   b[14] = big[14];
                 a[15] = big[ 7];   b[15] = big[15];                
             end
-            4'd11: begin
+            4'd12: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 4];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 5];
                 a[2 ] = lit[ 2];   b[2 ] = lit[ 6];
@@ -431,7 +422,7 @@ module sort_32_u8(
                 a[14] = big[10];   b[14] = big[14];
                 a[15] = big[11];   b[15] = big[15];                
             end
-            4'd12: begin
+            4'd13: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 2];
                 a[1 ] = lit[ 1];   b[1 ] = lit[ 3];
                 a[2 ] = big[ 0];   b[2 ] = big[ 2];
@@ -449,7 +440,7 @@ module sort_32_u8(
                 a[14] = big[12];   b[14] = big[14];
                 a[15] = big[13];   b[15] = big[15];                   
             end
-            4'd13: begin
+            4'd14: begin
                 a[0 ] = lit[ 0];   b[0 ] = lit[ 1];
                 a[1 ] = big[ 0];   b[1 ] = big[ 1];
                 a[2 ] = lit[ 2];   b[2 ] = lit[ 3];
