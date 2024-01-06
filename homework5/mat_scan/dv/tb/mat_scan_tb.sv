@@ -29,6 +29,12 @@ module mat_scan_tb;
         end
     end
 
+    always @(posedge clk) begin
+        if (vld_out == 1'b1) begin
+            $display("%d",dout);
+        end
+    end
+
     mat_scan u_mat_scan(
         .clk(clk),
         .rst_n(rst_n),
