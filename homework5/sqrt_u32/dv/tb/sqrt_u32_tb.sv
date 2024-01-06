@@ -1,4 +1,4 @@
-`timescale 1ns / 10ps
+`timescale 1ns / 1ps
 
 module sqrt_u32_tb;
     reg unsigned [31:0] a; 
@@ -16,7 +16,7 @@ module sqrt_u32_tb;
     reg [31:0] a_sqrt_ref[19:0];
 
 
-    always #2.5 clk = ~clk;
+    always #5 clk = ~clk;
 
     sqrt_u32 u_sqrt_u32(
         .x(a),
@@ -31,9 +31,9 @@ module sqrt_u32_tb;
         rst_n = 0;
         clk = 0;
         vld_in = 0;
-        #5
+        #10;
         rst_n = 1;
-        #5;
+        #10;
 
         for(i=0;i<16;i++) begin
             vld_in = 1;
@@ -44,10 +44,10 @@ module sqrt_u32_tb;
             if(a_sqrt_ref[i] > a_r_sqrt) begin
                 a_sqrt_ref[i] = a_sqrt_ref[i] - 1; // Discard this carry
             end
-            #5
+            #10;
             vld_in = 0;
         end
-        #160;
+        #320;
         for(i=16;i<20;i++) begin
             vld_in = 1;
             a =  $random;
@@ -57,7 +57,7 @@ module sqrt_u32_tb;
             if(a_sqrt_ref[i] > a_r_sqrt) begin
                 a_sqrt_ref[i] = a_sqrt_ref[i] - 1; // Discard this carry
             end
-            #5
+            #10;
             vld_in = 0;
         end
     end
@@ -67,7 +67,7 @@ module sqrt_u32_tb;
             wait(vld_out);
             #1;
             $display("res=%d,ref=%d",sqrt_res,a_sqrt_ref[j]);
-            #6;
+            #11;
         end
         $finish;
     end

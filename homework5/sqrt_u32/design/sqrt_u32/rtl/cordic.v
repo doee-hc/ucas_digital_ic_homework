@@ -25,7 +25,6 @@ module cordic #(
     input [31:0]    iz,
 
     output reg      o_en,
-    output reg      o_en_pre,       // one cycle ahead o_en
     output [31:0]   ox,
     output [31:0]   oy,
     output [31:0]   oz
@@ -46,53 +45,61 @@ module cordic #(
     //assign atan_table[8] = 73;          // (0.2/180)    * 65536
     //assign atan_table[9] = 36;          // (0.1/180)    * 65536
 
-    reg signed [32:0] x     ;       
-    reg signed [32:0] y     ;
+    reg signed [33:0] x     ;       
+    reg signed [33:0] y     ;
     wire              sign  ;
-    reg         [ITERATION_WIDTH:0] itera;
+    reg         [ITERATION_WIDTH:0] itera_current;
+    reg         [ITERATION_WIDTH:0] itera_next;
+
     reg               en;
+
+    // state transition
+    always @(*) begin
+        if(i_en) begin
+            itera_next = 0;
+        end
+        else if(itera_current == ITERATION + 1) begin
+            itera_next = itera_current;
+        end
+        else begin
+            itera_next = itera_current + 1;
+        end
+    end 
 
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            en          <= 1'b0;
+            itera_current <= ITERATION + 1;
+        end
+        else begin
+            itera_current <= itera_next;
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
             o_en        <= 1'b0;
-            o_en_pre    <= 1'b0;
         end
         else begin
             o_en        <= 1'b0;
-            o_en_pre    <= 1'b0;
-            if(i_en) begin
-                en      <= 1'b1;
-            end
-            else if(en) begin
-                if (itera == ITERATION - 1) begin
-                    o_en_pre    <= 1'b1;
-                end
-                if (itera == ITERATION) begin
-                    en      <= 1'b0;
-                    o_en    <= 1'b1;
-                end
+            if (itera_next == ITERATION) begin
+                en      <= 1'b0;
+                o_en    <= 1'b1;
             end
         end
     end
 
-    assign sign = y[32];
+    assign sign = y[33];
 
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            itera       <= 0;
         end
-        else begin
-            if(i_en) begin
-                x <= ix - (iy >>> 1);
-                y <= iy - (ix >>> 1);
-                itera <= 2;
-            end
-            else if(en) begin
-                x <= sign ? (x + (y >>> itera)) : (x - (y >>> itera));
-                y <= sign ? (y + (x >>> itera)) : (y - (x >>> itera));
-                itera <= itera + 1;
-            end
+        if(itera_next == 0) begin
+            x <= ix;
+            y <= iy;
+        end
+        else if(itera_current != ITERATION) begin
+            x <= sign ? (x + (y >>> itera_next)) : (x - (y >>> itera_next));
+            y <= sign ? (y + (x >>> itera_next)) : (y - (x >>> itera_next));
         end
     end
     

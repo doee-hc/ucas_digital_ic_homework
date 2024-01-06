@@ -29,6 +29,7 @@ module sqrt_u32(
     wire    [63:0]  ox_k;
     reg     [31:0]  x_sft;
     reg     [15:0]  sqrt_res;
+    reg     [31:0]  ox_r;
 
 
     wire            data_vld;
@@ -36,47 +37,46 @@ module sqrt_u32(
     reg             data_vld_r1;
     reg             cordic_ien;
     wire            cordic_oen;
-    wire            cordic_oen_pre;
 
     reg             cordic_oen_r;
+    wire            fifo_rd_en;
 
     fifo #(
         .DATA_WIDTH(32),
         .DEPTH(16)
     )u_fifo_32_16(
-        .clk        (clk        ),
-        .rst_n      (rst_n      ),
-        .wr_en      (vld_in     ),
-        .wr_data    (x          ),
-        .rd_en      (cordic_ien ),
-        .rd_data    (x_fifo     ),
-        .empty      (fifo_empty )
+        .clk        (clk         ),
+        .rst_n      (rst_n       ),
+        .wr_en      (vld_in      ),
+        .wr_data    (x           ),
+        .rd_en      (fifo_rd_en  ),
+        .rd_data    (x_fifo      ),
+        .empty      (fifo_empty  )
     );
 
-    assign data_vld = ~fifo_empty & cordic_ien;
-
-    always @(posedge clk or negedge rst_n) begin
-        if(!rst_n) begin
-            data_vld_r  <= 1'b0;
-            data_vld_r1 <= 1'b0;
-        end
-        else begin
-            data_vld_r  <= data_vld;
-            data_vld_r1 <= data_vld_r;
-        end
-    end
+    assign fifo_rd_en = cordic_ien | cordic_oen_r;
+    assign data_vld = ~fifo_empty & fifo_rd_en;
 
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             cordic_ien <= 1'b1;
         end
         else begin
-            if(cordic_oen_pre) begin
-                cordic_ien <= 1'b1;
-            end
-            else if(data_vld) begin
+            if(data_vld) begin
                 cordic_ien <= 1'b0;
             end
+            else if(cordic_oen_r) begin
+                cordic_ien <= 1'b1;
+            end
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            data_vld_r  <= 1'b0;
+        end
+        else begin
+            data_vld_r  <= data_vld;
         end
     end
 
@@ -115,17 +115,16 @@ module sqrt_u32(
     u_cordic (
         .clk        (clk           ),
         .rst_n      (rst_n         ),
-        .i_en       (data_vld_r1   ),
+        .i_en       (data_vld_r    ),
         .ix         (ix            ),
         .iy         (iy            ),
         .o_en       (cordic_oen    ),
-        .o_en_pre   (cordic_oen_pre),
         .ox         (ox            ),
         .oy         (oy            )
     );
 
     // good condition : 8 iteration
-    assign ox_k = ox * 32'b0001_1011_0100_0100_1100_0111_1111_1111;
+    assign ox_k = ox_r * 32'b0001_1011_0100_0100_1100_0111_1111_1111;
     // good condition : 7 iteration
     //assign ox_k = ox * 32'b0001_1011_0100_0100_1011_1000_0000_0000;
 
@@ -136,11 +135,12 @@ module sqrt_u32(
         else begin
             cordic_oen_r <= cordic_oen;
             if(cordic_oen) begin
-                y <= sqrt_res;
+                ox_r <= ox;
             end
         end
     end
 
+    assign y = sqrt_res;
     assign vld_out = cordic_oen_r;
 
 
